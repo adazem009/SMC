@@ -53,6 +53,15 @@ while ((i2 < arglentemp)); do
 done
 temp2=$(/usr/bin/printf "%.*f" "${scale}" "${temp2}")
 lentemp=${#temp2}
+temp4=0
+i2=0
+while ((i2 < lentemp)); do
+	i2="$(($i2+1))"
+	if [ "${temp2:$(($i2-1)):1}" = "," ]; then
+		temp4=1
+		break
+	fi
+done
 temp3=""
 zero=0
 i2=$lentemp
@@ -62,7 +71,7 @@ while ((i2 > 0)); do
 			zero=1
 			temp3=".${temp3}"
 		fi
-	elif [ "${temp2:$(($i2-1)):1}" = "0" ] && ((zero == 0)); then
+	elif [ "${temp2:$(($i2-1)):1}" = "0" ] && ((zero == 0)) && ((temp4 == 0)); then
 		# Nothing here
 		:
 	else
