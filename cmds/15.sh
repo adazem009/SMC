@@ -58,8 +58,10 @@ zero=0
 i2=$lentemp
 while ((i2 > 0)); do
 	if [ "${temp2:$(($i2-1)):1}" = "," ]; then
-		zero=1
-		temp3=".${temp3}"
+		if ((zero == 1)); then
+			zero=1
+			temp3=".${temp3}"
+		fi
 	elif [ "${temp2:$(($i2-1)):1}" = "0" ] && ((zero == 0)); then
 		# Nothing here
 		:
