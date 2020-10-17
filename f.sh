@@ -100,37 +100,6 @@ process_argument ()
 		fi
 	done
 }
-decode ()
-{
-	number=$1
-	noend=$2
-	list=()
-	item=""
-	letter=1
-	nltemp="$((${#number} / 2))"
-	loadi=0
-	while ((loadi < nltemp)); do
-		loadi="$(($loadi+1))"
-		symbol="${number:$(($letter-1)):1}${number:$(($letter)):1}"
-		if [ "$symbol" = "0" ]; then
-			list[${#list[@]}]=$item
-			item=""
-		else
-			if [ "$symbol" = "95" ]; then
-				item="${item} "
-			else
-				if [ "${symbol:0:1}" = "0" ]; then
-					symbol=${symbol:1:1}
-				fi
-				item="${item}${characters:$(($symbol-1)):1}"
-			fi
-		fi
-		letter="$(($letter+2))"
-	done
-	if ((noend == 1)); then
-		list[${#list[@]}]=$item
-	fi
-}
 set_var ()
 {
 	varname=$1
