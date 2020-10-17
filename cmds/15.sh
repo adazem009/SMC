@@ -70,8 +70,6 @@ while ((i2 > 0)); do
 	i2="$(($i2-1))"
 done
 temp2="$temp3"
-#temp2="$(echo "scale=${scale};${temp2}/1" | bc)"
-echo "debug: $temp2" >> ./misc/.screen
 process_argument ${command[2]}
 arglentemp=${#argument[@]}
 i2=0
