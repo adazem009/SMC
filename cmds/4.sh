@@ -8,7 +8,7 @@ source ./f.sh
 gates=()
 cmdlen=${#command[@]}
 i3=1
-while ((i2 < cmdlen)); do
+while ((i3 < cmdlen)); do
 	i3="$(($i3+1))"
 	process_argument "${command[$(($i3-1))]}"
 	if [ "$(($i3%2))" = "0" ]; then
@@ -111,7 +111,9 @@ fi
 tempcount="$((${gates[@]}-1))"
 tempcount="$(($tempcount/2))"
 i2=0
+tempi=0
 while ((tempi < tempcount)); do
+	tempi="$(($tempi+1))"
 	i2="$(($i2+2))"
 	gate=()
 	if ((i2 == 2)); then
