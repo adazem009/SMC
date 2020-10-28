@@ -185,5 +185,10 @@ if ((gate_output == 0)); then
 		elif [ "${command[0]}" = "4" ]; then
 			pos="$(($pos-1))"
 		fi
+		if [ "${command[0]}" = "5" ] || [ "${command[0]}" = "6" ]; then
+                        tempcond=1
+                else
+                        tempcond=0
+                fi
 	done
 fi
