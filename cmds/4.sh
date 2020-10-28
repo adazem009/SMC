@@ -178,9 +178,9 @@ if ((gate_output == 0)); then
 	until [ "$tempcond" = "1" ] && [ "$pos" = "0" ]; do
 		i1="$(($i1+1))"
 		process_command "${PRG[$(($i1-1))]}"
-		if [ "${command[0]}" = "4"]; then
+		if [ "${command[0]}" = "4" ]; then
 			pos="$(($pos+1))"
-		elif [ "${command[0]}" = "4"]; then
+		elif [ "${command[0]}" = "4" ]; then
 			pos="$(($pos-1))"
 		fi
 	done
