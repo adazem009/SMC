@@ -108,7 +108,7 @@ gate_output=0
 if [ "${#gates[@]}" = "1" ]; then
 	gate_output=${gates[0]}
 fi
-tempcount="$((${gates[@]}-1))"
+tempcount="$((${#gates[@]}-1))"
 tempcount="$(($tempcount/2))"
 i2=0
 tempi=0
