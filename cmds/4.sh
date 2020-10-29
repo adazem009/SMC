@@ -64,7 +64,7 @@ while ((i3 < cmdlen)); do
                                 ;;
 			">=")
 				# A1 is greater or equal to A2
-				if ((${argument[0]} >= ${argument[2]})); then
+				if [ "${argument[0]}" -ge "${argument[2]}" ]; then
                                         gate_output=1
                                 else
                                         gate_output=0
@@ -72,7 +72,7 @@ while ((i3 < cmdlen)); do
                                 ;;
 			"!>=")
 				# NOT A1 is greater or equal to A2
-				if ! ((${argument[0]} >= ${argument[2]})); then
+				if ! [ "${argument[0]}" -ge "${argument[2]}" ]; then
                                         gate_output=1
                                 else
                                         gate_output=0
@@ -80,7 +80,7 @@ while ((i3 < cmdlen)); do
                                 ;;
 			"<=")
 				# A1 is lower or equal to A2
-				if ((${argument[0]} <= ${argument[2]})); then
+				if [ "${argument[0]}" -le "${argument[2]}" ]; then
                                         gate_output=1
                                 else
                                         gate_output=0
@@ -88,7 +88,7 @@ while ((i3 < cmdlen)); do
                                 ;;
 			"!<=")
 				# NOT A1 is lower or equal to A2
-				if ! ((${argument[0]} <= ${argument[2]})); then
+				if ! [ "${argument[0]}" -le "${argument[2]}" ]; then
                                         gate_output=1
                                 else
                                         gate_output=0
@@ -182,7 +182,7 @@ if ((gate_output == 0)); then
 		process_command "${PRG[$(($i1-1))]}"
 		if [ "${command[0]}" = "4" ]; then
 			pos="$(($pos+1))"
-		elif [ "${command[0]}" = "4" ]; then
+		elif [ "${command[0]}" = "5" ] && ((pos > 0)); then
 			pos="$(($pos-1))"
 		fi
 		if [ "${command[0]}" = "5" ] || [ "${command[0]}" = "6" ]; then
