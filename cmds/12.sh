@@ -2,7 +2,7 @@
 
 # ---
 # Wait for a(ny) key to be pressed.
-# Input 1 of argument 2 is the key (encoded).
+# Input 1 of argument 2 is the key.
 # Input 2 of argument 2 (0 or 1) toggles release waiting. It'll wait until you release the key after you pressed it.
 # ---
 source ./f.sh
