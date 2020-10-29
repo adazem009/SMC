@@ -182,7 +182,7 @@ if ((gate_output == 0)); then
 		process_command "${PRG[$(($i1-1))]}"
 		if [ "${command[0]}" = "4" ]; then
 			pos="$(($pos+1))"
-		elif [ "${command[0]}" = "5" ]; then
+		elif [ "${command[0]}" = "5" ] && ((pos > 0)); then
 			pos="$(($pos-1))"
 		fi
 		if [ "${command[0]}" = "5" ] || [ "${command[0]}" = "6" ]; then
