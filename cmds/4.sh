@@ -174,21 +174,23 @@ while ((tempi < tempcount)); do
                         ;;
 	esac
 done
-if ((gate_output == 0)); then
-	pos=0
-	process_command "${PRG[$(($i1-1))]}"
-	until [ "$tempcond" = "1" ] && [ "$pos" = "0" ]; do
-		i1="$(($i1+1))"
+if [[ "$1" != "1" ]]; then
+	if ((gate_output == 0)); then
+		pos=0
 		process_command "${PRG[$(($i1-1))]}"
-		if [ "${command[0]}" = "4" ]; then
-			pos="$(($pos+1))"
-		elif [ "${command[0]}" = "5" ] && ((pos > 0)); then
-			pos="$(($pos-1))"
-		fi
-		if [ "${command[0]}" = "5" ] || [ "${command[0]}" = "6" ]; then
-                        tempcond=1
-                else
-                        tempcond=0
-                fi
-	done
+		until [ "$tempcond" = "1" ] && [ "$pos" = "0" ]; do
+			i1="$(($i1+1))"
+			process_command "${PRG[$(($i1-1))]}"
+			if [ "${command[0]}" = "4" ]; then
+				pos="$(($pos+1))"
+			elif [ "${command[0]}" = "5" ] && ((pos > 0)); then
+				pos="$(($pos-1))"
+			fi
+			if [ "${command[0]}" = "5" ] || [ "${command[0]}" = "6" ]; then
+        	                tempcond=1
+        	        else
+        	                tempcond=0
+        	        fi
+		done
+	fi
 fi
