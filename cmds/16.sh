@@ -9,5 +9,11 @@ cmdlentemp="${#command[@]}"
 while ((i3 < cmdlentemp)); do
 	i3="$(($i3+1))"
 	process_argument ${command[$(($i3-1))]}
-	set_var ${argument[0]} ${argument[1]}
+    setas=""
+    for (( countme=1; countme<=${#argument[@]}-1; countme++ ))
+    do  
+       setas+=${argument[${countme}]}
+       echo ${argument[2]}
+    done
+	set_var ${argument[0]} ${setas} #${argument[1]}
 done
