@@ -178,6 +178,7 @@ if [[ "$1" != "1" ]]; then
 	if ((gate_output == 0)); then
 		pos=0
 		process_command "${PRG[$(($i1-1))]}"
+		tempcond=0
 		until [ "$tempcond" = "1" ] && [ "$pos" = "0" ]; do
 			i1="$(($i1+1))"
 			process_command "${PRG[$(($i1-1))]}"
