@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 
 # ---
 # Replace item in list.
