@@ -28,6 +28,10 @@ clear
 loops_i=()
 loops_id=()
 loops_max=()
+if [ -d "./misc/.lists" ]; then
+	rm -rf ./misc/.lists
+fi
+mkdir ./misc/.lists
 # --- Execute commands ---
 i1=0
 while (( i1 < prg_len )); do
@@ -36,6 +40,7 @@ while (( i1 < prg_len )); do
 	execute
 done
 rm ./misc/.screen
+rm -rf ./misc/.lists
 # --- The end ---
 #echo && echo "-----------"
 printf "\n--------------------\nProcess completed, press any key to continue..."
