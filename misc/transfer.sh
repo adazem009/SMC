@@ -33,4 +33,5 @@ if ((move == 1)); then
 	mv ./program.smc ./SMC/program.smc
 fi
 cd SMC
+chmod +x ./smc.sh && chmod +x ./update.sh
 rm ../smctransfer.sh &
