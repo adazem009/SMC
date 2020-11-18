@@ -13,7 +13,6 @@ while ((i3 < cmdlentemp)); do
     for (( countme=1; countme<=${#argument[@]}-1; countme++ ))
     do  
        setas+=${argument[${countme}]}
-       #echo ${argument[2]}
     done
-	set_var ${argument[0]} ${setas} #${argument[1]}
+	set_var ${argument[0]} ${setas}
 done
