@@ -5,6 +5,7 @@ if ((move == 1)); then
 		mv ./SMC/program.smc ./program.smc
 	else
 		echo "Error: couldn't find program.smc."
+		rm ./smctransfer.sh &
 		exit -2
 	fi
 fi
